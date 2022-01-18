@@ -1,4 +1,6 @@
 import { galleryItems } from './gallery-items.js';
+
+
 // Change code below this line
 
 const makeDivItemMarkup = img => {
@@ -15,14 +17,11 @@ const makeDivItemRows = galleryItems
 
 gall.insertAdjacentHTML("afterbegin", makeDivItemRows);
 
+// console.table(galleryItems);
+
 const aInDiv = document.querySelector(".gallery__link");
 console.log(aInDiv);
-
 aInDiv.addEventListener("click", (event) => {
     event.preventDefault();
     console.log("event.target: ", event.target, "event.currentTarget: ", event.currentTarget);
 });
-
-
-
-console.table(galleryItems);
