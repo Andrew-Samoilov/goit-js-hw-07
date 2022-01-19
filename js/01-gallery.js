@@ -19,16 +19,27 @@ gall.insertAdjacentHTML("afterbegin", makeDivItemRows);
 
 // console.table(galleryItems);
 
-console.log(gall);
+// console.log(gall);
 gall.addEventListener("click", (event) => {
     const isImg = event.target.classList.contains('gallery__image');
     if (!isImg) return;
     event.preventDefault();
 
     // console.log("Dataset.source ", event.target.dataset.source);
-    basicLightbox.create(`
+    const instance = basicLightbox.create(`
     <div class="modal">
     <img src="${event.target.dataset.source}" width="100%" height="100%">
     </div>
-	`).show()
+	`);
+
+    instance.show();
+
+    document.addEventListener("keydown", event => {
+        // console.log("Keydown: ", event);
+        if (event.key === 'Escape') {
+            console.log(`Escape Escape`);
+            instance.close();
+        }
+    });
+
 });
