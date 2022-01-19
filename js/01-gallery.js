@@ -37,6 +37,7 @@ gall.addEventListener("click", (event) => {
         // console.log("Keydown: ", event);
         if (event.key === 'Escape') {
             console.log(`Escape Escape`);
+            document.removeEventListener("keydown", console.log(`Remove event listener`));
             instance.close();
         }
     });
