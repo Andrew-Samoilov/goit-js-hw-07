@@ -19,9 +19,16 @@ gall.insertAdjacentHTML("afterbegin", makeDivItemRows);
 
 // console.table(galleryItems);
 
-const aInDiv = document.querySelector(".gallery__link");
-console.log(aInDiv);
-aInDiv.addEventListener("click", (event) => {
+console.log(gall);
+gall.addEventListener("click", (event) => {
+    const isImg = event.target.classList.contains('gallery__image');
+    if (!isImg) return;
     event.preventDefault();
-    console.log("event.target: ", event.target, "event.currentTarget: ", event.currentTarget);
+
+    // console.log("Dataset.source ", event.target.dataset.source);
+    basicLightbox.create(`
+    <div class="modal">
+    <img src="${event.target.dataset.source}" width="100%" height="100%">
+    </div>
+	`).show()
 });
