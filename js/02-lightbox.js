@@ -1,6 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
 console.log(galleryItems);
 
 const makeDivItemMarkup = img => {
@@ -20,9 +18,6 @@ gall.addEventListener("click", (event) => {
     const isImg = event.target.classList.contains('gallery__image');
     if (!isImg) return;
     event.preventDefault();
-
     console.log("Dataset.source ", event.target.dataset);
-
     let lightbox = new SimpleLightbox('.gallery a', { captionDelay: 250 });
-
 });
